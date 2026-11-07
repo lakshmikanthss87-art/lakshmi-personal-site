@@ -67,6 +67,18 @@
     .contact-detail { color:var(--ink); text-decoration:none; font-weight:600 }
     .contact-detail:hover { text-decoration:underline }
     .contact-actions { display:flex; flex-direction:column; gap:12px; align-items:flex-start }
+    .travel-feature { display:grid; grid-template-columns:1fr 1fr; overflow:hidden; border:1px solid var(--line); border-radius:22px; background:var(--card); min-height:290px }
+    .travel-art { position:relative; min-height:290px; overflow:hidden; background:linear-gradient(155deg,#e7eee3,#d9e5dc 58%,#c6d8d0) }
+    .travel-sun { position:absolute; width:76px; height:76px; border-radius:50%; background:#e9b77d; top:42px; right:18%; box-shadow:0 0 0 16px #e9b77d25 }
+    .travel-hill { position:absolute; display:block; width:120%; height:65%; bottom:-20%; border-radius:50% 50% 0 0 }
+    .hill-back { left:-34%; background:#8da995; transform:rotate(-12deg) }
+    .hill-front { left:28%; bottom:-31%; background:#557b62; transform:rotate(12deg) }
+    .travel-road { position:absolute; width:28%; height:85%; left:44%; bottom:-40%; background:#f2e6cf; border-radius:50% 50% 0 0; transform:rotate(17deg); border:5px solid #fff8 }
+    .travel-plane { position:absolute; top:28px; left:13%; color:#426b50; font-size:1.7rem; transform:rotate(-18deg) }
+    .travel-copy { padding:42px; align-self:center }
+    .travel-copy h3 { font-size:1.65rem; letter-spacing:-.045em; margin:12px 0 }
+    .travel-copy p { color:var(--muted); font-size:.94rem; margin:0 0 22px }
+    .travel-coming { display:inline-block; color:var(--green); font-size:.82rem; font-weight:700; padding:9px 13px; border-radius:999px; background:#e9eee5 }
     .contact { background:#e9eee5; border:0; padding:76px 0 }
     .contact-inner { display:flex; justify-content:space-between; align-items:center; gap:30px }
     .contact h2 { max-width:540px }
@@ -74,7 +86,7 @@
     footer { padding:25px 0; color:var(--muted); font-size:.8rem }
     .footer-inner { display:flex; justify-content:space-between; gap:20px }
     @media(max-width:740px) { .wrap{width:min(100% - 34px,540px)} header{height:70px} nav{gap:15px} nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;gap:30px;padding:68px 0 65px}.hero-copy{order:1}.visual{order:0;min-height:310px}.orb{width:260px;height:260px}.portrait{width:210px}.note{right:4px;bottom:18px}.spark.one{right:15%}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:15px}.contact-inner{align-items:flex-start;flex-direction:column}.contact-actions{flex-direction:row;flex-wrap:wrap} }
-    @media(max-width:540px) { .resume-grid{grid-template-columns:1fr}.resume-card.wide{grid-column:auto} }
+    @media(max-width:740px) { .travel-feature{grid-template-columns:1fr}.travel-art{min-height:220px}.travel-copy{padding:28px} }\n    @media(max-width:540px) { .resume-grid{grid-template-columns:1fr}.resume-card.wide{grid-column:auto} }
     @media(max-width:440px) { h1{font-size:3.35rem}.about-grid{grid-template-columns:1fr}.hero-actions{gap:17px}.footer-inner{flex-direction:column;gap:4px} }
     @media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*:before,*:after{transition:none!important} }
   </style>
@@ -83,7 +95,7 @@
   <header class="wrap">
       <a class="brand" href="#top">Lakshmikanth S S<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#travels">My Travels</a><a href="#contact">Contact</a>
       <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -120,6 +132,23 @@
           <article class="resume-card"><h3>Skills</h3><ul><li>Production planning and control</li><li>Quality and hygiene compliance</li><li>Process optimization</li><li>Technical operations and strategic planning</li><li>Microsoft Office</li></ul></article>
           <article class="resume-card"><h3>Achievements</h3><ul><li>Completed the VRITHIKA internship at SRS–ICAR–NDRI on probiotic foods and beverages with nutri-cereals.</li><li>Recognized for developing Ghee Crunch from ghee residue during the HOT programme.</li><li>Completed KVAFSU’s Youth Competence Development for Food Security programme.</li><li>Served as an NSS programme leader from 2020 to 2024.</li></ul></article>
           <article class="resume-card wide"><h3>Beyond the lab</h3><p><strong>Interests:</strong> Travel, videography and editing, reading, documentaries, blogging, content creation, and banner and label design.</p><p><strong>Languages:</strong> English, Hindi, Kannada, and Telugu.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="travels">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Beyond the everyday</div><h2>My travels,<br>one story at a time.</h2></div>
+          <p>A personal travel journal for the places I explore, the people I meet, and the moments worth remembering.</p>
+        </div>
+        <div class="travel-feature">
+          <div class="travel-art" aria-hidden="true"><span class="travel-sun"></span><span class="travel-hill hill-back"></span><span class="travel-hill hill-front"></span><span class="travel-road"></span><span class="travel-plane">✈</span></div>
+          <div class="travel-copy">
+            <div class="kicker">Travel journal</div>
+            <h3>New places. Fresh perspectives.</h3>
+            <p>From quick getaways to longer journeys, this is where I’ll collect travel photographs, memorable experiences, and little discoveries along the way.</p>
+            <span class="travel-coming">Travel stories and photographs coming soon</span>
+          </div>
         </div>
       </div>
     </section>
