@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="A little corner of the internet for Laksh — curious, creative, and always learning.">
+  <title>Laksh — Personal Site</title>
+  <style>
+    :root { --ink:#20251f; --muted:#697168; --paper:#f6f4ef; --card:#fffefa; --green:#426b50; --line:#e4e3da; --orange:#d78a55; }
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.6 }
+    a { color:inherit }
+    .wrap { width:min(1080px, calc(100% - 44px)); margin:auto }
+    header { height:82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line) }
+    .brand { text-decoration:none; font-weight:750; letter-spacing:-.04em; font-size:1.05rem }
+    .brand span { color:var(--green) }
+    nav { display:flex; align-items:center; gap:30px; font-size:.88rem; color:var(--muted) }
+    nav a { text-decoration:none } nav a:hover { color:var(--ink) }
+    .nav-cta { padding:10px 16px; background:var(--ink); border-radius:999px; color:#fff; transition:transform .2s }
+    .nav-cta:hover { color:#fff; transform:translateY(-2px) }
+    .hero { min-height:610px; padding:82px 0 90px; display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:var(--green); font-weight:650; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase }
+    .dot { width:8px; height:8px; background:#73a27d; border-radius:50%; box-shadow:0 0 0 5px #e2ecdf }
+    h1 { max-width:640px; margin:21px 0 20px; font-size:clamp(3.3rem, 7vw, 5.6rem); line-height:.99; letter-spacing:-.075em; font-weight:680 }
+    h1 em { color:var(--green); font-family:Georgia, serif; font-weight:400 }
+    .lead { max-width:490px; margin:0; color:var(--muted); font-size:1.08rem }
+    .hero-actions { display:flex; align-items:center; gap:24px; margin-top:32px }
+    .button { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; background:var(--green); color:white; font-size:.9rem; font-weight:650; text-decoration:none; box-shadow:0 8px 18px #426b5025; transition:transform .2s, box-shadow .2s }
+    .button:hover { transform:translateY(-2px); box-shadow:0 12px 25px #426b5035 }
+    .text-link { color:var(--muted); font-size:.9rem; text-decoration:none }
+    .text-link:hover { color:var(--ink) }
+    .visual { position:relative; min-height:390px; display:grid; place-items:center }
+    .orb { position:absolute; width:330px; height:330px; border-radius:48% 52% 55% 45% / 42% 45% 55% 58%; background:#e4eadb; transform:rotate(-13deg) }
+    .portrait { position:relative; z-index:1; width:min(275px, 74%); aspect-ratio:4/5; border-radius:48% 48% 25px 25px; background:linear-gradient(150deg,#d8b08a 0 38%,#899d79 38% 70%,#536b55 70%); overflow:hidden; box-shadow:0 22px 50px #34442c28 }
+    .portrait:before { content:""; position:absolute; width:115px; height:145px; border-radius:48% 48% 44% 44%; background:#f0c6a1; left:50%; top:25%; transform:translateX(-50%); box-shadow:inset 0 14px 0 #493b30 }
+    .portrait:after { content:""; position:absolute; width:205px; height:155px; border-radius:50% 50% 0 0; background:#344b3e; left:50%; bottom:-40px; transform:translateX(-50%) }
+    .spark { position:absolute; color:var(--orange); font-size:2.4rem }
+    .spark.one { top:32px; right:20px }.spark.two { bottom:37px; left:18px; font-size:1.5rem }
+    .note { position:absolute; z-index:2; right:-3px; bottom:35px; background:var(--card); padding:13px 17px; border-radius:14px; box-shadow:0 10px 30px #20251f12; font-size:.8rem; color:var(--muted); transform:rotate(3deg) }
+    .note strong { display:block; color:var(--ink); font-size:.9rem }
+    .section { padding:88px 0; border-top:1px solid var(--line) }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:30px }
+    .kicker { color:var(--green); text-transform:uppercase; font-size:.75rem; font-weight:700; letter-spacing:.13em }
+    h2 { margin:9px 0 0; font-size:clamp(2rem,4vw,3rem); letter-spacing:-.06em; line-height:1.08 }
+    .section-head p { max-width:360px; margin:0; color:var(--muted); font-size:.95rem }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px }
+    .about-card { min-height:205px; padding:27px; border:1px solid var(--line); border-radius:20px; background:var(--card) }
+    .about-card .icon { font-size:1.45rem }
+    .about-card h3 { margin:17px 0 7px; font-size:1.12rem; letter-spacing:-.03em }
+    .about-card p { margin:0; color:var(--muted); font-size:.92rem }
+    .contact { background:#e9eee5; border:0; padding:76px 0 }
+    .contact-inner { display:flex; justify-content:space-between; align-items:center; gap:30px }
+    .contact h2 { max-width:540px }
+    .contact p { color:var(--muted); margin:14px 0 0 }
+    footer { padding:25px 0; color:var(--muted); font-size:.8rem }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px }
+    @media(max-width:740px) { .wrap{width:min(100% - 34px,540px)} header{height:70px} nav{gap:15px} nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;gap:30px;padding:68px 0 65px}.hero-copy{order:1}.visual{order:0;min-height:310px}.orb{width:260px;height:260px}.portrait{width:210px}.note{right:4px;bottom:18px}.spark.one{right:15%}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:15px}.contact-inner{align-items:flex-start;flex-direction:column} }
+    @media(max-width:440px) { h1{font-size:3.35rem}.about-grid{grid-template-columns:1fr}.hero-actions{gap:17px}.footer-inner{flex-direction:column;gap:4px} }
+    @media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*:before,*:after{transition:none!important} }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="#top">Laksh<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#contact">Contact</a>
+      <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot"></span> A little corner of the internet</div>
+        <h1>Hi, I’m <em>Laksh</em>.<br>Always curious.</h1>
+        <p class="lead">I’m exploring ideas, learning new things, and finding creative ways to share them. This is my little corner of the internet.</p>
+        <div class="hero-actions"><a class="button" href="#about">A bit about me <span aria-hidden="true">↓</span></a><a class="text-link" href="#contact">Find me online ↗</a></div>
+      </div>
+      <div class="visual" aria-label="Friendly illustrated portrait">
+        <div class="orb"></div><div class="portrait"></div><span class="spark one" aria-hidden="true">✳</span><span class="spark two" aria-hidden="true">✦</span>
+        <div class="note"><strong>Currently curious</strong>Creating, learning, sharing.</div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">A little about me</div><h2>Good things start<br>with curiosity.</h2></div><p>I like exploring the online world, discovering useful tools, and turning ideas into things I can share with others.</p></div>
+        <div class="about-grid">
+          <article class="about-card"><div class="icon" aria-hidden="true">✷</div><h3>Sharing ideas</h3><p>I’m interested in creating and sharing posts on LinkedIn, connecting with people, and building a positive presence online.</p></article>
+          <article class="about-card"><div class="icon" aria-hidden="true">⌁</div><h3>Learning as I go</h3><p>I enjoy exploring platforms like YouTube, finding new ideas, and learning how the digital world can help me create.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section contact" id="contact">
+      <div class="wrap contact-inner"><div><div class="kicker">Open to good conversations</div><h2>Have an idea? Let’s talk.</h2><p>I’d love to connect, exchange ideas, or hear what you’re creating.</p></div><a class="button" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Laksh. Made with care.</span><span>A small space on the internet, just for me.</span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
