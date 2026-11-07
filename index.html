@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f4ef">
-  <meta name="description" content="A little corner of the internet for Laksh — curious, creative, and always learning.">
-  <title>Laksh — Personal Site</title>
+  <meta name="description" content="Lakshmikanth S S — dairy technologist focused on processing, product quality, and dairy innovation.">
+  <title>Lakshmikanth S S — Dairy Technologist</title>
   <style>
     :root { --ink:#20251f; --muted:#697168; --paper:#f6f4ef; --card:#fffefa; --green:#426b50; --line:#e4e3da; --orange:#d78a55; }
     * { box-sizing:border-box }
@@ -34,6 +34,10 @@
     .visual { position:relative; min-height:390px; display:grid; place-items:center }
     .orb { position:absolute; width:330px; height:330px; border-radius:48% 52% 55% 45% / 42% 45% 55% 58%; background:#e4eadb; transform:rotate(-13deg) }
     .portrait { position:relative; z-index:1; width:min(275px, 74%); aspect-ratio:4/5; border-radius:48% 48% 25px 25px; background:linear-gradient(150deg,#d8b08a 0 38%,#899d79 38% 70%,#536b55 70%); overflow:hidden; box-shadow:0 22px 50px #34442c28 }
+    .portrait.profile-portrait { display:block; background:#e4eadb; transition:transform .2s }
+    .portrait.profile-portrait:hover { transform:translateY(-3px) rotate(-1deg) }
+    .profile-portrait:before, .profile-portrait:after { content:none }
+    .profile-portrait img { display:block; width:100%; height:100%; object-fit:cover }
     .portrait:before { content:""; position:absolute; width:115px; height:145px; border-radius:48% 48% 44% 44%; background:#f0c6a1; left:50%; top:25%; transform:translateX(-50%); box-shadow:inset 0 14px 0 #493b30 }
     .portrait:after { content:""; position:absolute; width:205px; height:155px; border-radius:50% 50% 0 0; background:#344b3e; left:50%; bottom:-40px; transform:translateX(-50%) }
     .spark { position:absolute; color:var(--orange); font-size:2.4rem }
@@ -50,22 +54,37 @@
     .about-card .icon { font-size:1.45rem }
     .about-card h3 { margin:17px 0 7px; font-size:1.12rem; letter-spacing:-.03em }
     .about-card p { margin:0; color:var(--muted); font-size:.92rem }
+    .resume-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px }
+    .resume-card { padding:25px 27px; border:1px solid var(--line); border-radius:20px; background:var(--card) }
+    .resume-card.wide { grid-column:1 / -1 }
+    .resume-card h3 { margin:0 0 12px; font-size:1.12rem; letter-spacing:-.03em }
+    .resume-card p, .resume-card li { color:var(--muted); font-size:.91rem }
+    .resume-card p { margin:0 0 10px }
+    .resume-card p:last-child { margin-bottom:0 }
+    .resume-card ul { margin:9px 0 0; padding-left:19px }
+    .resume-card li + li { margin-top:5px }
+    .resume-card strong { color:var(--ink); font-weight:650 }
+    .resume-meta { color:var(--green)!important; font-weight:650 }
+    .contact-detail { color:var(--ink); text-decoration:none; font-weight:600 }
+    .contact-detail:hover { text-decoration:underline }
+    .contact-actions { display:flex; flex-direction:column; gap:12px; align-items:flex-start }
     .contact { background:#e9eee5; border:0; padding:76px 0 }
     .contact-inner { display:flex; justify-content:space-between; align-items:center; gap:30px }
     .contact h2 { max-width:540px }
     .contact p { color:var(--muted); margin:14px 0 0 }
     footer { padding:25px 0; color:var(--muted); font-size:.8rem }
     .footer-inner { display:flex; justify-content:space-between; gap:20px }
-    @media(max-width:740px) { .wrap{width:min(100% - 34px,540px)} header{height:70px} nav{gap:15px} nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;gap:30px;padding:68px 0 65px}.hero-copy{order:1}.visual{order:0;min-height:310px}.orb{width:260px;height:260px}.portrait{width:210px}.note{right:4px;bottom:18px}.spark.one{right:15%}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:15px}.contact-inner{align-items:flex-start;flex-direction:column} }
+    @media(max-width:740px) { .wrap{width:min(100% - 34px,540px)} header{height:70px} nav{gap:15px} nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;gap:30px;padding:68px 0 65px}.hero-copy{order:1}.visual{order:0;min-height:310px}.orb{width:260px;height:260px}.portrait{width:210px}.note{right:4px;bottom:18px}.spark.one{right:15%}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:15px}.contact-inner{align-items:flex-start;flex-direction:column}.contact-actions{flex-direction:row;flex-wrap:wrap} }
+    @media(max-width:540px) { .resume-grid{grid-template-columns:1fr}.resume-card.wide{grid-column:auto} }
     @media(max-width:440px) { h1{font-size:3.35rem}.about-grid{grid-template-columns:1fr}.hero-actions{gap:17px}.footer-inner{flex-direction:column;gap:4px} }
     @media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*:before,*:after{transition:none!important} }
   </style>
 </head>
 <body>
   <header class="wrap">
-    <a class="brand" href="#top">Laksh<span>.</span></a>
+      <a class="brand" href="#top">Lakshmikanth S S<span>.</span></a>
     <nav aria-label="Main navigation">
-      <a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
       <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -73,29 +92,43 @@
     <section class="hero wrap">
       <div class="hero-copy">
         <div class="eyebrow"><span class="dot"></span> A little corner of the internet</div>
-        <h1>Hi, I’m <em>Laksh</em>.<br>Always curious.</h1>
-        <p class="lead">I’m exploring ideas, learning new things, and finding creative ways to share them. This is my little corner of the internet.</p>
+        <h1>Hi, I’m <em>Lakshmikanth</em>.<br>Dairy technologist.</h1>
+        <p class="lead">I work across dairy processing, quality assurance, and product development, with a focus on hygienic manufacturing and continuous improvement.</p>
         <div class="hero-actions"><a class="button" href="#about">A bit about me <span aria-hidden="true">↓</span></a><a class="text-link" href="#contact">Find me online ↗</a></div>
       </div>
-      <div class="visual" aria-label="Friendly illustrated portrait">
-        <div class="orb"></div><div class="portrait"></div><span class="spark one" aria-hidden="true">✳</span><span class="spark two" aria-hidden="true">✦</span>
-        <div class="note"><strong>Currently curious</strong>Creating, learning, sharing.</div>
+      <div class="visual" aria-label="Laksh's profile photo">
+        <div class="orb"></div><a class="portrait profile-portrait" href="https://github.com/lakshmikanthss87-art" target="_blank" rel="noopener noreferrer" aria-label="Visit Laksh's GitHub profile"><img src="https://avatars.githubusercontent.com/u/353698797?v=4" alt="Laksh's GitHub profile photo"></a><span class="spark one" aria-hidden="true">✳</span><span class="spark two" aria-hidden="true">✦</span>
+        <div class="note"><strong>Currently studying</strong>M.Tech, Dairy Technology · NDRI</div>
       </div>
     </section>
     <section class="section" id="about">
       <div class="wrap">
-        <div class="section-head"><div><div class="kicker">A little about me</div><h2>Good things start<br>with curiosity.</h2></div><p>I like exploring the online world, discovering useful tools, and turning ideas into things I can share with others.</p></div>
+        <div class="section-head"><div><div class="kicker">Profile</div><h2>Good dairy starts<br>with good science.</h2></div><p>Dairy technologist with hands-on experience in milk reception, processing, product quality, food safety, and new product development.</p></div>
         <div class="about-grid">
-          <article class="about-card"><div class="icon" aria-hidden="true">✷</div><h3>Sharing ideas</h3><p>I’m interested in creating and sharing posts on LinkedIn, connecting with people, and building a positive presence online.</p></article>
-          <article class="about-card"><div class="icon" aria-hidden="true">⌁</div><h3>Learning as I go</h3><p>I enjoy exploring platforms like YouTube, finding new ideas, and learning how the digital world can help me create.</p></article>
+          <article class="about-card"><div class="icon" aria-hidden="true">✷</div><h3>Food safety & quality</h3><p>Knowledge of ISO 22000, FSSAI regulations, HACCP, GMP, and GHP, with a focus on compliance and consistent products.</p></article>
+          <article class="about-card"><div class="icon" aria-hidden="true">⌁</div><h3>Products I know</h3><p>Liquid and UHT milk, ice cream, paneer, butter, ghee, milk powder, dairy whitener, and fermented dairy products.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section-head"><div><div class="kicker">Education & experience</div><h2>Learning, making,<br>and improving.</h2></div><p>Academic training and practical work across dairy processing, product development, and food quality.</p></div>
+        <div class="resume-grid">
+          <article class="resume-card"><h3>Education</h3><p class="resume-meta">M.Tech · Dairy Technology · 2025–present</p><p>ICAR–National Dairy Research Institute, SRS · CGPA 8.42</p><p class="resume-meta">B.Tech · Dairy Technology · 2020–2025</p><p>Dairy Science College, Hebbal, Bengaluru · OGPA 8.43</p><p>Class 12: 95.83% · Class 10: 93.26%</p></article>
+          <article class="resume-card"><h3>Professional experience</h3><p class="resume-meta">Production Technical Officer · Tumkur Milk Union (KMF)</p><p>Karnataka · July–November 2025</p><ul><li>Supported milk reception, testing, processing operations, and milk movement planning.</li><li>Monitored CIP, sanitation, GMP, GHP, and HACCP practices.</li><li>Contributed to QA/QC, material balance, and process yield evaluation.</li></ul></article>
+          <article class="resume-card"><h3>Research</h3><p class="resume-meta">M.Tech research topic</p><p>Upscaling in-situ production of vitamin B12 in a milk–millet matrix.</p></article>
+          <article class="resume-card"><h3>Training</h3><p class="resume-meta">Mother Dairy · Yelahanka</p><p>Training in milk powder, dairy whitener, market milk, UHT milk, ice cream, paneer, butter, ghee, and fermented dairy products.</p><p class="resume-meta">Student READY Programme · SEDP</p><p>Hands-on training in dairy processing and product development.</p></article>
+          <article class="resume-card"><h3>Skills</h3><ul><li>Production planning and control</li><li>Quality and hygiene compliance</li><li>Process optimization</li><li>Technical operations and strategic planning</li><li>Microsoft Office</li></ul></article>
+          <article class="resume-card"><h3>Achievements</h3><ul><li>Completed the VRITHIKA internship at SRS–ICAR–NDRI on probiotic foods and beverages with nutri-cereals.</li><li>Recognized for developing Ghee Crunch from ghee residue during the HOT programme.</li><li>Completed KVAFSU’s Youth Competence Development for Food Security programme.</li><li>Served as an NSS programme leader from 2020 to 2024.</li></ul></article>
+          <article class="resume-card wide"><h3>Beyond the lab</h3><p><strong>Interests:</strong> Travel, videography and editing, reading, documentaries, blogging, content creation, and banner and label design.</p><p><strong>Languages:</strong> English, Hindi, Kannada, and Telugu.</p></article>
         </div>
       </div>
     </section>
     <section class="section contact" id="contact">
-      <div class="wrap contact-inner"><div><div class="kicker">Open to good conversations</div><h2>Have an idea? Let’s talk.</h2><p>I’d love to connect, exchange ideas, or hear what you’re creating.</p></div><a class="button" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a></div>
+      <div class="wrap contact-inner"><div><div class="kicker">Open to good conversations</div><h2>Have an idea? Let’s talk.</h2><p><a class="contact-detail" href="mailto:lakshmikanthss87@gmail.com">lakshmikanthss87@gmail.com</a><br><a class="contact-detail" href="tel:+918747007824">+91 87470 07824</a></p></div><div class="contact-actions"><a class="button" href="https://www.linkedin.com/in/lakshmikanth-s-s" target="_blank" rel="noopener noreferrer">LinkedIn profile <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/lakshmikanthss87-art" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a></div></div>
     </section>
   </main>
-  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Laksh. Made with care.</span><span>A small space on the internet, just for me.</span></div></footer>
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Lakshmikanth S S. Made with care.</span><span>Dairy technology, quality, and innovation.</span></div></footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
