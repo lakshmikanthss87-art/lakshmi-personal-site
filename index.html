@@ -36,10 +36,7 @@
     .portrait { position:relative; z-index:1; width:min(275px, 74%); aspect-ratio:4/5; border-radius:48% 48% 25px 25px; background:linear-gradient(150deg,#d8b08a 0 38%,#899d79 38% 70%,#536b55 70%); overflow:hidden; box-shadow:0 22px 50px #34442c28 }
     .portrait.profile-portrait { display:block; background:#e4eadb; transition:transform .2s }
     .portrait.profile-portrait:hover { transform:translateY(-3px) rotate(-1deg) }
-    .profile-portrait:before, .profile-portrait:after { content:none }
     .profile-portrait img { display:block; width:100%; height:100%; object-fit:cover }
-    .portrait:before { content:""; position:absolute; width:115px; height:145px; border-radius:48% 48% 44% 44%; background:#f0c6a1; left:50%; top:25%; transform:translateX(-50%); box-shadow:inset 0 14px 0 #493b30 }
-    .portrait:after { content:""; position:absolute; width:205px; height:155px; border-radius:50% 50% 0 0; background:#344b3e; left:50%; bottom:-40px; transform:translateX(-50%) }
     .spark { position:absolute; color:var(--orange); font-size:2.4rem }
     .spark.one { top:32px; right:20px }.spark.two { bottom:37px; left:18px; font-size:1.5rem }
     .note { position:absolute; z-index:2; right:-3px; bottom:35px; background:var(--card); padding:13px 17px; border-radius:14px; box-shadow:0 10px 30px #20251f12; font-size:.8rem; color:var(--muted); transform:rotate(3deg) }
@@ -132,3 +129,4 @@
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
